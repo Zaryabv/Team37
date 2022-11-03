@@ -8,7 +8,7 @@ def image_directory_path(instance, filename):
 class Basket(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='basket_user')
     date_published = models.DateTimeField(auto_now_add=True, verbose_name="date published", null=True)
-    followers = models.IntegerField(default=0)
+    items_no = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.id)
