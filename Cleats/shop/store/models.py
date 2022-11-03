@@ -1,5 +1,5 @@
 from django.db import models
-from django import settings
+from django.conf import settings
 
 def image_directory_path(instance, filename):
     return 'image_{0}/{1}'.format(instance.user.id, filename)
@@ -16,7 +16,6 @@ class Basket(models.Model):
 
 class BasketItem(models.Model):
     basket =  models.ForeignKey(Basket, on_delete=models.CASCADE, related_name='basket')
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.TextField(max_length=1500, verbose_name='name')
     added = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
