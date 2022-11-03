@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 def image_directory_path(instance, filename):
-    return 'image_{0}/{1}'.format(instance.user.id, filename)
+    return 'image_{0}/{1}'.format(instance, filename)
 
 # Create your models here.
 class Basket(models.Model):
