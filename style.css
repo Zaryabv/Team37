@@ -56,7 +56,7 @@ body {
     position: sticky;
     top: 0;
     left: 0;
-    
+    margin: 0 0 24px 0;
 }
 
 #navbar {
@@ -251,4 +251,19 @@ body {
     bottom: 20px;
     right: 10px;
 
+}
+
+#signup{
+    text-align: center;
+}
+
+#signup .box{
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #cce7d4;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: auto;
+    transition: 0.2s ease; 
+    
 }
