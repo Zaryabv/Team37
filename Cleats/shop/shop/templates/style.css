@@ -279,3 +279,85 @@ body {
     transition: 0.2s ease; 
     
 }
+
+
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url() needs dark banner img;
+    width: 100%;
+    height: 40vh;
+    background-position: center;
+}
+
+#banner h4{
+    color: black;
+    font-size: 16px;
+}
+
+#banner h2{
+    color: black;
+    font-size: 30px;
+    padding: 10px 0;
+}
+
+#banner h2 span{
+    color: #189165;
+}
+
+#banner button:hover{
+    background-color: #189165;
+    color: #fff;
+}
+
+#sm-banner{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#sm-banner .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url() needs dark banner img;
+    min-width: 580px;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+}
+
+sm-banner h4{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+
+}
+
+sm-banner h2{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+
+}
+
+sm-banner span{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+
+}
+
+#sm-banner .banner-box:hover button{
+    background: #189165;
+    border: 1px solid #189165;
+}
+
+
+
