@@ -34,40 +34,23 @@
     </div>
 </section>
 
-<body>
-
-
-	<nav class="navbar">
-		<div class="navbar__container">
-			<!--briefcase link https://fontawesome.com/icons/briefcase?s=solid-->
-			<a href="login.php" id="navbar__logo">Login/Sign-up</a>
-			<div class="navbar__toggle" id="mobile-menu">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</div>
-		</div>
-	</nav>
-
-
-
-
 	<body>
 
-
-		<div id="box">
-
+        <section id="signup" class="signup">
+            <!-- reused signup styles for login part-->
+		<div class="box">
 			<form method="post">
-				<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-
+				<div style="font-size: 20px;margin: 10px;color: rgb(0, 0, 0);">Login</div>
+				<label for="fname">Username:</label><br>
 				<input id="text" type="text" name="name"><br><br>
+				<label for="fname">Password:</label><br>
 				<input id="text" type="password" name="password"><br><br>
 
 				<input id="button" type="submit" value="Login"><br><br>
-
+                <a href="index.html" id="navbar__logo">Go Back</a>
 				<a href="signup.html">Click to Signup</a><br><br>
 			</form>
 		</div>
-	</body>
-
+	</section>
+</body>
 </html>
