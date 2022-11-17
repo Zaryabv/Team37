@@ -1,18 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cleats Website</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
 
 <body>
 
-    <section id="header"> 
+    <section id="header">
         <a href="#"><img src="img/Cleats.png" width="120" height="auto" class="logo" alt=""></a>
 
         <div>
@@ -22,7 +22,8 @@
                 <!-- maybe have a icon instead of login/signup-->
                 <li><a href="store.html">Shop</a></li>
                 <!-- have admin login as a button (i.e. if admin click here)-->
-                <li><a href="basket.html"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
+                <li><a href="basket.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <!-- maybe should'nt be a page but drop down menu-->
                 <!-- can have checkout button also embedded as a button in cart menu. -->
                 <li><a href="contact.html">Contact us</a></li>
             </ul>
@@ -30,27 +31,24 @@
     </section>
 
     <section id="contactus">
-        <section id="signup" class="signup">
             <div class="box">
                 <form method="post">
-               <label for="firstn">First Name</label>
-               <input type="text" id="firstn" name="firstname">
-               
-               <label for="lastn">Last Name</label>
-               <input type="text" id="lastn" name="lastname">
-               
-               <label for="emailadd">Email</label>
-               <input type="email" id="emailadd" name="emailaddress">
+                    <label for="firstn">First Name</label>
+                    <input type="text" id="firstn" name="firstname"><br></br>
 
-               <label for="query">Message in a bottle</label>
-               <textarea id="query" name="query" placeholder="Write here" style="height: 200px">
+                    <label for="lastn">Last Name</label>
+                    <input type="text" id="lastn" name="lastname"><br></br>
 
-               </textarea>
+                    <label for="emailadd">Email</label>
+                    <input type="email" id="emailadd" name="emailaddress"><br></br>
 
-               <input type="submit" value="Send">
-            </form>
+                    <label for="query">Message in a bottle:</label><br></br>
+                    <textarea id="query" name="query" placeholder="Write here" rows="10" cols="40">
+                    </textarea><br></br>
+
+                    <input type="submit" value="Send">
+                </form>
             </div>
-            </section>
     </section>
 
 </body>
