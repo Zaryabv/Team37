@@ -363,7 +363,6 @@ sm-banner span{
 #about-banner .banner-box{
     flex-direction: column;
     background-image: url() needs dark banner img;
-    background-color: #465b52;
     position:absolute;
     left: 0;
     right: 0;
@@ -382,6 +381,34 @@ sm-banner span{
 }
 
 #about-banner span{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+/*
+#about-banner2 .banner-box2{
+    flex-direction: column;
+    background-image: url() needs dark banner img;
+    position:bottom;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background-size:100%; 
+}
+#about-banner2 h4{
+    color: #000000;
+    font-size: 40px;
+}
+
+#about-banner2 h2{
+    color: #189165;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+#about-banner2 span{
     color: rgb(0, 0, 0);
     font-size: 30px;
     font-weight: 500;
