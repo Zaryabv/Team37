@@ -353,33 +353,26 @@ sm-banner span{
     padding-bottom: 15px;
 
 }
-
 #sm-banner .banner-box:hover button{
     background: #189165;
     border: 1px solid #189165;
 }
 
-
-#about-banner .banner-box{
+#about-banner .banner-box-about{
     flex-direction: column;
-    background-image: url() needs dark banner img;
-    position:absolute;
-    left: 0;
-    right: 0;
-    padding: 30px;
-    background-size:100%; 
+    background-image: url() needs dark banner img; 
+    padding-left: 10%;
 }
 #about-banner h4{
     color: #000000;
     font-size: 40px;
+    text-align: left;
 }
-
 #about-banner h2{
     color: #189165;
     font-size: 60px;
     font-weight: 800;
 }
-
 #about-banner span{
     color: rgb(0, 0, 0);
     font-size: 30px;
@@ -387,30 +380,6 @@ sm-banner span{
     padding-bottom: 15px;
 }
 
-/*
-#about-banner2 .banner-box2{
-    flex-direction: column;
-    background-image: url() needs dark banner img;
-    position:bottom;
-    left: 0;
-    right: 0;
-    padding: 30px;
-    background-size:100%; 
-}
-#about-banner2 h4{
-    color: #000000;
+#about-banner.banner-box-about li{
     font-size: 40px;
-}
-
-#about-banner2 h2{
-    color: #189165;
-    font-size: 60px;
-    font-weight: 800;
-}
-
-#about-banner2 span{
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    font-weight: 500;
-    padding-bottom: 15px;
 }
