@@ -80,3 +80,18 @@ def Basket_view(request):
     context['item'] = basket_items
     template = loader.get_template('index.html')
     return HttpResponse(template.render(context, request))
+
+def purchase(request):
+    user= request.user
+    basket = Basket.objects.get(user=user)
+    if request.method == "POST":
+        for each in BasketItem.objects.filter(basket=basket):
+            name=each.name
+            price=each.price
+            size=each.size
+            quantity=each.quantity
+            purchased, created = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name)
+            purchased.save()
+            each.delete()
+
+    return HttpResponseRedirect(reverse('basket', args=[user]))
