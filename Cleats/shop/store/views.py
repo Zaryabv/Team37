@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.db.models import Q 
-from store.models import Basket,BasketItem,Item
+from store.models import Basket,BasketItem,Item,HistoryItem
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
@@ -17,8 +17,9 @@ def ItemDetails(request, item_name):
         price = request.POST['price']
         size = request.POST['size']
         quantity = request.POST['quantity']
+        picture = request.POST['picture']
         basket, created = Basket.objects.get_or_create(user=user)
-        basketItem = BasketItem(user=user, name=name, price=price, size=size, quantity=quantity,basket=basket)
+        basketItem = BasketItem(user=user, name=name, price=price, size=size, quantity=quantity,basket=basket, picture=picture)
         basketItem.save()
 
         return HttpResponseRedirect(reverse('basket', args=[user]))
@@ -76,26 +77,10 @@ def Basket_view(request):
     basket_items = BasketItem.get(basket=basket)
     page = request.GET.get('page', 1)
     basket_paginator = Paginator(basket_items, 10)
-    basket_items = basket_paginator
+    basket_items = basket_paginator.page(page)
     context['item'] = basket_items
-    template = loader.get_template('index.html')
+    template = loader.get_template('basket.html')
     return HttpResponse(template.render(context, request))
-
-def purchase(request):
-    user= request.user
-    basket = Basket.objects.get(user=user)
-    if request.method == "POST":
-        for each in BasketItem.objects.filter(basket=basket):
-            name=each.name
-            price=each.price
-            size=each.size
-            quantity=each.quantity
-            purchased, created = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name)
-            purchased.save()
-            each.delete()
-
-    return HttpResponseRedirect(reverse('basket', args=[user]))
-
 
 
 def Addtobasket(request):
@@ -111,3 +96,18 @@ def Addtobasket(request):
         basket_item.save()
 
         return HttpResponseRedirect(reverse('basket', args=[user]))
+
+def purchase(request):
+    user= request.user
+    basket = Basket.objects.get(user=user)
+    if request.method == "POST":
+        for each in BasketItem.objects.filter(basket=basket):
+            name=each.name
+            price=each.price
+            size=each.size
+            quantity=each.quantity
+            purchased, created = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name)
+            purchased.save()
+            each.delete()
+
+    return HttpResponseRedirect(reverse('basket', args=[user]))

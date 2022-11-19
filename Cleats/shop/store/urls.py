@@ -1,5 +1,4 @@
 
-
 from django.urls import path
 from store.views import ItemDetails,Basket_view,storefront,Addtobasket,purchase
 urlpatterns = [

@@ -24,33 +24,50 @@
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="login_signup.html">Login/Sign-Up</a></li>
             <!-- maybe have a icon instead of login/signup-->
-            <li><a href="store.html">Shop</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <!-- have admin login as a button (i.e. if admin click here)-->
-            <li><a href="basket.html"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
             <!-- can have checkout button also embedded as a button in cart menu. -->
             <li><a href="contact.html">Contact us</a></li>
-			<li><a href="aboutus.html">About Us</a></li>
         </ul>
     </div>
 </section>
 
+<body>
+
+
+	<nav class="navbar">
+		<div class="navbar__container">
+			<!--briefcase link https://fontawesome.com/icons/briefcase?s=solid-->
+			<a href="login.php" id="navbar__logo">Login/Sign-up</a>
+			<div class="navbar__toggle" id="mobile-menu">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</div>
+		</div>
+	</nav>
+
+
+
+
 	<body>
 
-        <section id="signup" class="signup">
-            <!-- reused signup styles for login part-->
-		<div class="box">
+
+		<div id="box">
+
 			<form method="post">
-				<div style="font-size: 20px;margin: 10px;color: rgb(0, 0, 0);">Login</div>
-				<label for="fname">Email:</label><br>
+				<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
+
 				<input id="text" type="text" name="name"><br><br>
-				<label for="fname">Password:</label><br>
 				<input id="text" type="password" name="password"><br><br>
 
 				<input id="button" type="submit" value="Login"><br><br>
-                <a href="index.html" id="navbar__logo">Go Back</a>
+
 				<a href="signup.html">Click to Signup</a><br><br>
 			</form>
 		</div>
-	</section>
-</body>
+	</body>
+
 </html>
