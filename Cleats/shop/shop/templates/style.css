@@ -361,3 +361,28 @@ sm-banner span{
 
 
 
+
+#about-banner .banner-box{
+    flex-direction: column;
+    background-image: url() needs dark banner img;
+    background-color: #465b52;
+    padding: 30px;
+}
+#about-banner h4{
+    color: #000000;
+    font-size: 40px;
+}
+
+#about-banner h2{
+    color: #189165;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+#about-banner span{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: 500;
+    padding-bottom: 15px;
+
+}
