@@ -95,3 +95,19 @@ def purchase(request):
             each.delete()
 
     return HttpResponseRedirect(reverse('basket', args=[user]))
+
+
+
+def Addtobasket(request):
+    if request.method == "POST":
+        user = request.user
+        price = request.POST['price']
+        size = request.POST['size']
+        quantity = request.POST['quantity']
+        name = request.POST['name']
+        basket, created = Basket.objects.get_or_create(user=user)
+        basket.save()
+        basket_item = BasketItem(basket=basket, price=price, size=size, quantity=quantity, name=name)
+        basket_item.save()
+
+        return HttpResponseRedirect(reverse('basket', args=[user]))
