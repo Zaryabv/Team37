@@ -336,7 +336,8 @@ sm-banner span{
     text-align: center;
 }
 
-#signup .box{
+#signup .box,
+#contactus .box{
     width: 50%;
     padding: 20px;
     border: 1px solid #cce7d4;
@@ -351,17 +352,6 @@ sm-banner span{
     text-align: center;
 }
 
-#contactus .box{
-    text-align: center;
-    width: 50%;
-    padding: 20px;
-    border: 1px solid #cce7d4;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: auto;
-    transition: 0.2s ease; 
-    
-}
 
 #about-banner .banner-box-about{
     flex-direction: column;
@@ -408,7 +398,7 @@ sm-banner span{
 }
 
 #basket table thead{
-    border: 1px solid #465b52;
+    border: 1px solid #2b9567;
     border-left: none;
     border-right: none;
 }
@@ -423,4 +413,28 @@ sm-banner span{
     font-weight: 500;
     font-size: 13px;
     padding-top: 15px;
+}
+
+#subtotal{
+    width: 50%;
+    margin-bottom: 30px;
+    border: 3px solid #147b62;
+    padding: 30px;
+}
+
+#subtotal table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#subtotal table td{
+    width: 50%;
+    border: 2px solid #147b62;
+    padding: 10px;
+    font-size: 13px;
+}
+
+#subtotal h3{
+    padding-bottom: 15px;
 }
