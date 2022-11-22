@@ -384,3 +384,43 @@ sm-banner span{
     font-size: 30px;
     padding-bottom: 15px;
 }
+
+#basket table{
+    width: 100%;
+    border-collapse:collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+
+}
+
+#basket table td:nth-child(1),
+#basket table td:nth-child(2),
+#basket table td:nth-child(3),
+#basket table td:nth-child(4),
+#basket table td:nth-child(5){
+    width:150px;
+    text-align: center;
+}
+
+#basket table td:nth-child(4) input{
+    width: 70px;
+    padding: 10px 5px 10px 15px;
+}
+
+#basket table thead{
+    border: 1px solid #465b52;
+    border-left: none;
+    border-right: none;
+}
+
+#basket table thead td{
+    font-weight: 700;
+    font-size: 13px;
+    padding: 18px 0;
+}
+
+#basket table tbody tr td{
+    font-weight: 500;
+    font-size: 13px;
+    padding-top: 15px;
+}
