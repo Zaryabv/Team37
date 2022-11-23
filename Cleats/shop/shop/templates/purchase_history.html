@@ -52,20 +52,11 @@
             <strong>items</strong>
           {% endif %}
           <br>
-          <form action="{% url 'remove' items.id %}" method="POST">{% csrf_token %}
-            <input id="submit" type="submit" value="Click" />
-            <button id="remove_btn" >remove</button> 
-         
-          <br>
         </p>
       </div>
       {% endfor %}
-      <p>total price : {{ total_price }}</p>
-      <form action="{% url 'purchase' %}" method="POST">{% csrf_token %}
-        <input id="submit" type="submit" value="Click" />
-        <button id="purchase_btn" >purchase</button> 
       {% else %}
-      <p>basket is empty</p>
+      <p>0 purchases made</p>
   </article>
 
 {% endif %}

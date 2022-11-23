@@ -1,0 +1,16 @@
+
+
+
+<form action="{% url 'additem' %}" method="POST">{% csrf_token %}
+    <input type="hidden" name="name" value="{{item.name}}">
+    <input type="hidden" name="picture" value="{{item.picture.url}}">
+    <input type="hidden" name="price" value="{{item.price}}">
+    <label for="quantity">Amount:</label>
+    <input type="number"  name="quantity" min="1" max="10">
+    <label for="size">size:</label>
+    <input type="number"  name="size" min="1" max="5">
+    <input type="submit">
+</form>
+
+>
+    
