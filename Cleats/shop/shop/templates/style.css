@@ -403,7 +403,8 @@ sm-banner span{
 #basket table td:nth-child(2),
 #basket table td:nth-child(3),
 #basket table td:nth-child(4),
-#basket table td:nth-child(5){
+#basket table td:nth-child(5),
+#basket table td:nth-child(6){
     width:150px;
     text-align: center;
 }
