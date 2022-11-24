@@ -391,13 +391,30 @@ sm-banner span {
     color: rgb(0, 0, 0);
     font-size: 30px;
     padding-bottom: 15px;
+    margin-right: 10%;
 }
 
-#about-banner h3 {
+#about-banner details {
     color: rgb(0, 0, 0);
     font-size: 30px;
     padding-bottom: 15px;
 }
+
+#about-banner details[open] {
+    padding: .5em;
+}
+
+#about-banner details[open] h3 {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+#about-banner summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
 
 #basket table {
     width: 100%;
