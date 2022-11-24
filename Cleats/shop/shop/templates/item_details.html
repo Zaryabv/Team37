@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+    <!--Unicon-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- font awesome link https://fontawesome.com/kits/65a27d019d/use -->
+    <script src="https://kit.fontawesome.com/65a27d019d.js" crossorigin="anonymous"></script>
+    <!-- google fonts kumbh font link https://fonts.google.com/specimen/Kumbh+Sans?category=Serif,Sans+Serif,Display,Monospace&query=kumb-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="img/Cleats.png" width="120" height="auto" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="login_signup.html">Login/Sign-Up</a></li><!-- maybe have a icon instead of login/signup-->
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="store.html">Shop</a></li>
+                <!-- have admin login as a button (i.e. if admin click here)-->
+                <li><a class="active" href="basket.html"><i class="fas fa-shopping-cart"></i></a></li>
+                <!-- maybe should'nt be a page but drop down menu-->
+            </ul>
+        </div>
+    </section>
+
+    <!-- code for the base product html-->
+
+    <section id="productbase">
+        <div class="box">
+            <div id="productlook" class=" productimg">
+                <img src="nike.png">
+                <div id="productdesc" class="productdesc">
+                    <h2>PRODUCT NAME</h3><br></br>
+                    <h4>Unisex</h2>
+                    <h3>PRODUCT PRICE</h2><br></br>
+                </div>
+                <div class="shoequa">
+                    <h3>Please Select Amount:</h3>
+                    <select class="input_num">
+                        <option selected>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                    </select>
+                </div><br></br>
+                <div class="selectsize">
+                    <h3>Please Select a Size:</h3>
+                    <select class="input_num">
+                        <option selected>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select> <br></br>
+                    <input type="submit" value="Order Now">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
