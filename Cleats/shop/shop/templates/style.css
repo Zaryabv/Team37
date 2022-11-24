@@ -352,7 +352,8 @@ sm-banner span{
     text-align: center;
 }
 
-#contactus .box{
+#contactus .box,
+#productbase .box{
     text-align: center;
     width: 50%;
     padding: 20px;
@@ -404,12 +405,19 @@ sm-banner span{
 #basket table td:nth-child(3),
 #basket table td:nth-child(4),
 #basket table td:nth-child(5),
-#basket table td:nth-child(6){
+#basket table td:nth-child(6),
+#orders-page table td:nth-child(1),
+#orders-page table td:nth-child(2),
+#orders-page table td:nth-child(3),
+#orders-page table td:nth-child(4),
+#orders-page table td:nth-child(5),
+#orders-page table td:nth-child(6){
     width:150px;
     text-align: center;
 }
 
-#basket table td:nth-child(4) input{
+#basket table td:nth-child(4) input,
+#orders-page table td:nth-child(4) input{
     width: 70px;
     padding: 10px 5px 10px 15px;
 }
@@ -465,20 +473,6 @@ sm-banner span{
 
 }
 
-#orders-page table td:nth-child(1),
-#orders-page table td:nth-child(2),
-#orders-page table td:nth-child(3),
-#orders-page table td:nth-child(4),
-#orders-page table td:nth-child(5),
-#orders-page table td:nth-child(6){
-    width:150px;
-    text-align: center;
-}
-
-#orders-page table td:nth-child(4) input{
-    width: 70px;
-    padding: 10px 5px 10px 15px;
-}
 
 #orders-page table thead{
     border: 1px solid #2b9567;
