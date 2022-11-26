@@ -372,9 +372,10 @@ sm-banner span {
 
 #about-banner .banner-box-about {
     flex-direction: column;
-    background-image: url() needs dark banner img;
     padding-left: 10%;
+    padding-right: 10%;
 }
+
 
 #about-banner h4 {
     color: #000000;
@@ -390,7 +391,7 @@ sm-banner span {
 
 #about-banner span {
     color: rgb(0, 0, 0);
-    font-size: 30px;
+    font-size: 25px;
     padding-bottom: 15px;
     margin-right: 10%;
 }
@@ -666,7 +667,7 @@ sm-banner span {
     border-radius: 20px;
 }
 
-#shopbody .row{
+#shopbody .row {
     display: grid;
     grid-template-columns: 250px 250px 250px 250px 250px;
     gap: 10px 2em;
