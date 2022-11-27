@@ -318,23 +318,23 @@ body {
     padding: 30px;
 }
 
-sm-banner h4 {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 300;
-
-}
-
-sm-banner h2 {
-    color: #fff;
-    font-size: 28px;
+#sm-banner h4 {
+    color: #1a1a1a;
+    font-size: 40px;
     font-weight: 800;
 
 }
 
-sm-banner span {
-    color: #fff;
-    font-size: 14px;
+#sm-banner h2 {
+    color: #147b62;
+    font-size: 40px;
+    font-weight: 800;
+
+}
+
+#sm-banner span {
+    color: #1a1a1a;
+    font-size: 20px;
     font-weight: 500;
     padding-bottom: 15px;
 
