@@ -698,8 +698,9 @@ body {
 .footer {
     width: 100%;
     background-color: #e3e6f3;
-    padding: 10px 200px 40px 200px;
+    padding: 10px 100px 40px 100px;
     display: flex;
+    margin-top: 100px;
 }
 
 .footer div {
@@ -752,4 +753,9 @@ body {
 .col-contact p {
     font-size: 20px;
     color: #1a1a1a;
+}
+
+#contactus,
+#signup{
+    margin-top: 50px;
 }
