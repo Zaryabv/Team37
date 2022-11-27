@@ -700,7 +700,6 @@ body {
     background-color: #e3e6f3;
     padding: 10px 100px 40px 100px;
     display: flex;
-    margin-top: 100px;
 }
 
 .footer div {
@@ -756,6 +755,10 @@ body {
 }
 
 #contactus,
-#signup{
+#signup,
+#shopbody,
+#orders-page,
+#productbase{
     margin-top: 50px;
+    margin-bottom: 130px;
 }
