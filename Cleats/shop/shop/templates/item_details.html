@@ -44,16 +44,20 @@
     <section id="productbase">
         <div class="box">
             <div id="productlook" class=" productimg">
-                <img src="nike.png">
+                <img src="{{item.picture.url}}">
                 <div id="productdesc" class="productdesc">
-                    <h2>PRODUCT NAME</h3><br></br>
+                    <h2>{{item.name}}</h3><br></br>
                         <h4>Unisex
                     </h2>
-                    <h3>PRODUCT PRICE</h2><br></br>
+                    <h3>{{item.price}}</h2><br></br>
                 </div>
+                <form action="{% url 'additem' %}" method="POST">{% csrf_token %}
+                    <input type="hidden" name="name" value="{{item.name}}">
+                    <input type="hidden" name="picture" value="{{item.picture.url}}">
+                    <input type="hidden" name="price" value="{{item.price}}">
                 <div class="shoequa">
                     <h3>Please Select Amount:</h3>
-                    <select class="input_num">
+                    <select class="input_num" name ="quantity">
                         <option selected>01</option>
                         <option>02</option>
                         <option>03</option>
@@ -68,7 +72,7 @@
                 </div><br></br>
                 <div class="selectsize">
                     <h3>Please Select a Size:</h3>
-                    <select class="input_num">
+                    <select class="input_num" name="size">
                         <option selected>01</option>
                         <option>02</option>
                         <option>03</option>
@@ -82,39 +86,11 @@
                         <option>11</option>
                         <option>12</option>
                     </select> <br></br>
-                    <input type="submit" value="Order Now">
+                    <input type="submit">
+                </form>
                 </div>
-                <a href="store.html" id="navbar__logo">Go Back</a>
+                <a href="{% url 'store' %}" id="navbar__logo">Go Back</a>
             </div>
         </div>
     </section>
-    
-    <div class="footer">
-        <div class="col-link">
-        <h3>Useful Links</h3>
-        <a href="#">About us</a>
-        <a href="#">Contact us</a>
-        <a href="#">Shop</a>
-        <a href="#">Login/Sign-Up</a>    
-    </div>
-        <div class="col-news">
-            Subscribe to our weekly newsletter!
-            <form> 
-                <input type="email" placeholder="Your Email Address" required>
-                <br>
-                <button type="Submit"> Subscribe now!</button>
-            </form>
-        </div>
-        <div class="col-contact">
-            <h3>Contact us</h3>
-                <p> 
-                Email: Cleatsupport@gmail.com 
-                <br>
-                <br>
-                Phone: 0800 456 321
-                </p>
-        </div>
-            
-
-    </div>
 </body>
