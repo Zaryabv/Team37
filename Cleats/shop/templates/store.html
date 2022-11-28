@@ -21,17 +21,14 @@
     <a href="#"><img src="{% static 'img/Cleats.png' %}" width="120" height="auto" class="logo" alt=""></a>
     <div>
         <ul id="navbar">
-            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">About Us</a></li>
             <li><a href="{% url 'register' %}">Login/Sign-Up</a></li>
-            <!-- maybe have a icon instead of login/signup-->
-            <li><a href="{% url 'store' %}">Shop</a></li>
-            <!-- have admin login as a button (i.e. if admin click here)-->
-            <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
-            <!-- can have checkout button also embedded as a button in cart menu. -->
             <li><a href="{% url 'contact' %}">Contact us</a></li>
-            <li><a href="{% url 'purchase_history' %}">purchase statuses</a></li>
-            <li><a href="{% url 'aboutus' %}">about us</a></li>
-
+            <li><a class="active" href="{% url 'store' %}">Shop</a></li>
+            <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
+            <li><a href="{% url 'purchase_history' %}">My Orders</a></li>
+        </ul>
         </ul>
     </div>
 </section>
@@ -72,7 +69,7 @@
 <div class="footer">
     <div class="col-link">
     <h3>Useful Links</h3>
-    <a href="{% url 'aboutus' %}"></a>>About us</a>
+    <a href="{% url 'aboutus' %}">About us</a>
     <a href="{% url 'contact' %}">Contact us</a>
     <a href="{% url 'store' %}">Shop</a>
     <a href="{% url 'register' %}">Login/Sign-Up</a>    
@@ -856,11 +853,16 @@
   
   #contactus,
   #signup,
-  #shopbody,
   #orders-page,
   #productbase{
   margin-top: 50px;
   margin-bottom: 130px;
   }
+
+  #shopbody{
+    margin-top: 50px;
+  margin-bottom: 345px;
+  }
+  
   </style>
   </html>

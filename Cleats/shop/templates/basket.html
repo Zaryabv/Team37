@@ -25,20 +25,16 @@
 <body>
 
   <section id="header">
-    <a href="#"><img src="img/Cleats.png" width="120" height="auto" class="logo" alt=""></a>
+    <a href="#"><img src="{% static 'img/Cleats.png' %}" width="120" height="auto" class="logo" alt=""></a>
     <div>
         <ul id="navbar">
-            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">About Us</a></li>
             <li><a href="{% url 'register' %}">Login/Sign-Up</a></li>
-            <!-- maybe have a icon instead of login/signup-->
-            <li><a href="{% url 'store' %}">Shop</a></li>
-            <!-- have admin login as a button (i.e. if admin click here)-->
-            <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
-            <!-- can have checkout button also embedded as a button in cart menu. -->
             <li><a href="{% url 'contact' %}">Contact us</a></li>
-            <li><a href="{% url 'purchase_history' %}">purchase statuses</a></li>
-            <li><a href="{% url 'aboutus' %}">about us</a></li>
-
+            <li><a href="{% url 'store' %}">Shop</a></li>
+            <li><a class="active" href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
+            <li><a href="{% url 'purchase_history' %}">My Orders</a></li>
         </ul>
     </div>
 </section>
@@ -94,14 +90,15 @@
                 <input id="submit" type="submit" value="Click" />
                 <button id="purchase_btn" name="buttonbase" >purchase</button> 
                 {% else %}
-                
-              <p>basket is empty</p>
-              {% endif %}
+            <p>basket is empty</p>
+          {% endif %}
         </div>
     </section>
 
+
 </body>
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 * {
@@ -863,6 +860,11 @@ color: #1a1a1a;
 #productbase{
 margin-top: 50px;
 margin-bottom: 130px;
+}
+
+#basketprice{
+margin-top: 50px;
+margin-bottom: 100px; 
 }
 </style>
 </html>
