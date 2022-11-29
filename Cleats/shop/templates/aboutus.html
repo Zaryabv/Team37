@@ -24,8 +24,8 @@
             {% if user.is_staff %}
             <li><a href="{% url 'admin' %}">Admin</a></li>
             {% endif %}
-            <li><a class="active" href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            <li><a  href="{% url 'index' %}">Home</a></li>
+            <li><a class="active" href="{% url 'aboutus' %}">About Us</a></li>
             {% if user.is_authenticated %}
             <li><a>{{ request.user.username }}</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
