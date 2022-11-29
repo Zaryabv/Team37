@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.core.paginator import Paginator
 from operator import attrgetter
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 
 def ItemDetails(request, item_name):
@@ -99,9 +100,10 @@ def Addtobasket(request):
         size = request.POST['size']
         quantity = request.POST['quantity']
         name = request.POST['name']
+        picture = request.POST['picture']
         basket, created = Basket.objects.get_or_create(user=user)
         basket.save()
-        basket_item = BasketItem(user = user, basket=basket, price=price, size=size, quantity=quantity, name=name)
+        basket_item = BasketItem(user = user, basket=basket, price=price, size=size, quantity=quantity, name=name,picture=picture)
         basket_item.save()
 
         return HttpResponseRedirect(reverse('basket'))
@@ -115,7 +117,8 @@ def purchase(request):
             price=each.price
             size=each.size
             quantity=each.quantity
-            purchased = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name)
+            picture=each.picture
+            purchased = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name, picture=picture)
             purchased.save()
             each.delete()
 
@@ -186,3 +189,22 @@ def remove(request,item_id):
     return HttpResponseRedirect(reverse('basket'))
 
 
+
+def admin_view(request):
+    context ={}
+    user = request.user
+    try:
+
+        users= User.objects.all()
+        orders = HistoryItem.objects.all()
+        items = Item.objects.all()
+        page = request.GET.get('page', 1)
+        items_paginator = Paginator(items, 10)
+        items = items_paginator.page(page)
+        context['item'] = items
+        context['users'] = users
+        context['orders'] = orders
+    except Item.DoesNotExist:
+        pass
+    template = loader.get_template('admin.html')
+    return HttpResponse(template.render(context, request))

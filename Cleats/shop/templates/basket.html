@@ -8,11 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-
-
-    <!--Unicon-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
+    <link rel="stylesheet" href="style.css">
     <!-- font awesome link https://fontawesome.com/kits/65a27d019d/use -->
     <script src="https://kit.fontawesome.com/65a27d019d.js" crossorigin="anonymous"></script>
     <!-- google fonts kumbh font link https://fonts.google.com/specimen/Kumbh+Sans?category=Serif,Sans+Serif,Display,Monospace&query=kumb-->
@@ -21,20 +17,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500&display=swap" rel="stylesheet">
 </head>
 
-
-<body>
-
-  <section id="header">
+<section id="header">
     <a href="#"><img src="{% static 'img/Cleats.png' %}" width="120" height="auto" class="logo" alt=""></a>
     <div>
         <ul id="navbar">
-            <li><a href="{% url 'index' %}">Home</a></li>
+            {% if user.is_staff %}
+            <li><a href="{% url 'admin' %}">Admin</a></li>
+            {% endif %}
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            {% if user.is_authenticated %}
+            <li><a>{{ request.user.username }}</a></li>
+            <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
             <li><a href="{% url 'register' %}">Login/Sign-Up</a></li>
+            {% endif %}
             <li><a href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'store' %}">Shop</a></li>
-            <li><a class="active" href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
-            <li><a href="{% url 'purchase_history' %}">My Orders</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}"><i class="fas fa-shopping-cart"></i></a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'purchase_history' %}">My Order</a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}">My Orders</a></li>
+            {% endif %}
         </ul>
     </div>
 </section>
@@ -55,14 +64,13 @@
                 {% if item %} 
                 {% for items in item %}
                 <tr>
-                    <td><form action="{% url 'remove' items.id %}" method="POST">{% csrf_token %}
-                        <input id="submit" type="submit" value="Click" />
+                    <td>
                         <i class="uil uil-times-circle"><button id="remove_btn" ></i></a></td>
                     <td><a href="{% url 'item_details'  items.name %}"><img src="{{ items.picture}}" alt="Placeholder image"></a></td>
                     <td>      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
+                    <td>{{items.price}}</td>
                     <td>{{items.quantity}}</td>
-                    <td><input type="number" value="1"></td>
-                    <td>£ {{items.price}}</td>
+                    <td>£ {% widthratio items.price 1 items.quantity %}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -75,7 +83,7 @@
             <table>
                 <tr>
                     <td>Basket Subtotal</td>
-                    <td> £ {{ total_price }}</td>
+                    <td> £ {{total_price}}</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -83,11 +91,11 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong></strong></strong></td>
+                    <td><strong>£ {{ total_price |add:"20" }}</strong></strong></td>
                 </tr>
             </table>
             <form action="{% url 'purchase' %}" method="POST">{% csrf_token %}
-                <input id="submit" type="submit" value="Click" />
+                <input id="purchase" type="submit" value="Click" />
                 <button id="purchase_btn" name="buttonbase" >purchase</button> 
                 {% else %}
             <p>basket is empty</p>
@@ -867,4 +875,5 @@ margin-top: 50px;
 margin-bottom: 100px; 
 }
 </style>
+
 </html>

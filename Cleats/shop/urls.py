@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.storefront, name = 'index'),
     path('store/', include('store.urls')),
-    path("register/", v.register, name="register"), 
+    path("register/", v.register, name="register"),
+    path("login/", v.registration, name="login"),
+    path("logout/", v.logoutUser, name="logout"),
     path('', include("django.contrib.auth.urls")), #authentication
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

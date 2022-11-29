@@ -44,4 +44,5 @@ class HistoryItem(models.Model):
     price = models.IntegerField(default=0)
     size = models.IntegerField(default=0)
     quantity = models.IntegerField(blank=True, default=1)
-    picture = models.ManyToManyField(ImageFiles, related_name='history_image')
+    picture = models.ImageField(upload_to=image_directory_path, blank=True, null=True,)
+    date = models.DateTimeField(auto_now=True, null=True,blank=True)
