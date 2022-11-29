@@ -23,12 +23,24 @@
     <div>
         <ul id="navbar">
             <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'aboutus' %}">About Us</a></li>
+            <li><a  href="{% url 'aboutus' %}">About Us</a></li>
+            {% if user.is_authenticated %}
+            <li><a>{{ request.user.username }}</a></li>
+            {% else %}
             <li><a class="active" href="{% url 'register' %}">Login/Sign-Up</a></li>
-            <li><a href="{% url 'contact' %}">Contact us</a></li>
+            {% endif %}
+            <li><a  href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'store' %}">Shop</a></li>
-            <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
-            <li><a href="{% url 'purchase_history' %}">My Orders</a></li>
+            {% if user.is_authenticated %}
+            <li><a  href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}"><i class="fas fa-shopping-cart"></i></a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'purchase_history' %}">My Order</a></li>
+            {% else %}
+            <li><a href="{% url 'register' %}">My Orders</a></li>
+            {% endif %}
         </ul>
     </div>
 </section>
