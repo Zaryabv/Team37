@@ -6,7 +6,9 @@ from django.template import loader
 from django.urls import reverse
 from django.core.paginator import Paginator
 from operator import attrgetter
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 def ItemDetails(request, item_name):
     item = get_object_or_404(Item, name=item_name)
     user = request.user
