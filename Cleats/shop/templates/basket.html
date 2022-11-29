@@ -32,7 +32,7 @@
             {% else %}
             <li><a href="{% url 'register' %}">Login/Sign-Up</a></li>
             {% endif %}
-            {% endif %}
+    
             <li><a href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'store' %}">Shop</a></li>
             {% if user.is_authenticated %}

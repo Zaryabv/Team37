@@ -63,7 +63,7 @@ def storefront(request):
 	Items = sorted(Item_search(search_entry), key=attrgetter('added'), reverse=True)
 
 	page = request.GET.get('page', 1)
-	Items_paginator = Paginator(Items, 10)
+	Items_paginator = Paginator(Items, 15)
 	Items = Items_paginator.page(page)
 	
 
@@ -157,7 +157,7 @@ def store(request):
 	Items = sorted(Item_search(search_entry), key=attrgetter('added'), reverse=True)
 
 	page = request.GET.get('page', 1)
-	Items_paginator = Paginator(Items, 10)
+	Items_paginator = Paginator(Items, 15)
 	Items = Items_paginator.page(page)
 	
 
@@ -198,9 +198,6 @@ def admin_view(request):
         users= User.objects.all()
         orders = HistoryItem.objects.all()
         items = Item.objects.all()
-        page = request.GET.get('page', 1)
-        items_paginator = Paginator(items, 10)
-        items = items_paginator.page(page)
         context['item'] = items
         context['users'] = users
         context['orders'] = orders
