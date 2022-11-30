@@ -53,14 +53,12 @@
             <h2>Customer List</h2>
             <thead>
                 <tr>
-                    <td>Remove</td>
                     <td>Username</td>
                     <td>Email</td>
             </thead>
             <tbody>
                 <tr>
                     {% for user in users %}
-                    <td><a href="#"><i class="uil uil-times-circle"></i></a></td>
                     <td>{{user.username}}</td>
                     <td>{{user.email}}</td>
                 </tr>
@@ -89,9 +87,9 @@
                     <td>{{order.date}}</td>
                     <td>{{order.user.email}}</td>
                     <td>{{order.name}}</td>
-                    <td>{{order.price}}</td>
-                    <td><input type="number" value="1"></td>
-                    <td>Size</td>
+                    <td>£{{order.price}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.size}}</td>
                     {% endfor %}
                 </tr>
             </tbody>
@@ -106,15 +104,13 @@
                 <tr>
                     <td>Product</td>
                     <td>Price</td>
-                    <td>Size</td>
                 </tr>
             </thead>
             <tbody>
                 {% for items in item %}
                 <tr>
                     <td>{{items.name}}</td>
-                    <td>{{items.price}}</td>
-                    <td>{{items.size}}</td>
+                    <td>£{{items.price}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
