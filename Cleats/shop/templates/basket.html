@@ -24,7 +24,7 @@
             {% if user.is_staff %}
             <li><a href="{% url 'admin' %}">Admin</a></li>
             {% endif %}
-            <li><a  href="{% url 'index' %}">Home</a></li>
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'aboutus' %}">About Us</a></li>
             {% if user.is_authenticated %}
             <li><a>{{ request.user.username }}</a></li>
@@ -67,7 +67,7 @@
                 <tr>
                     <td>
                         <i class="uil uil-times-circle"><button id="remove_btn" ></i></a></td>
-                    <td><a href="{% url 'item_details'  items.name %}"><img src="{{ items.picture}}" alt="Placeholder image"></a></td>
+                    <td><a href="{% url 'item_details'  items.name %}"><img src="{{items.picture}}" a></td>
                     <td>      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
                     <td>{{items.price}}</td>
                     <td>{{items.quantity}}</td>
