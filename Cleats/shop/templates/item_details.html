@@ -51,12 +51,11 @@
     <section id="productbase">
         <div class="box">
             <div id="productlook" class=" productimg">
-                <img src="{{item.picture.url}}">
+                <img id="productimage" src="{{item.picture.url}}">
                 <div id="productdesc" class="productdesc">
-                    <h2>{{item.name}}</h3><br></br>
-                        <h4>Unisex
-                    </h2>
-                    <h3>{{item.price}}</h2><br></br>
+                    <h2>{{item.name}}</h2><br></br>
+                    <h4>£{{item.price}}</h4><br></br>
+                    <p2>{{item.description}}</p2><br><br>
                 </div>
                 <form action="{% url 'additem' %}" method="POST">{% csrf_token %}
                     <input type="hidden" name="name" value="{{item.name}}">
@@ -162,6 +161,12 @@ color: #222;
 
 p {
 font-size: 40px;
+color: #465b52;
+margin: 15px 0 20px 0;
+}
+
+p2 {
+font-size: 25px;
 color: #465b52;
 margin: 15px 0 20px 0;
 }
@@ -511,6 +516,12 @@ cursor: pointer;
 margin: auto;
 transition: 0.2s ease;
 
+}
+
+#productbase .box img{
+display: flex;
+height: 100%;
+width: 100%;
 }
 
 #about-banner .banner-box-about {
@@ -894,6 +905,11 @@ color: #1a1a1a;
 #productbase{
 margin-top: 50px;
 margin-bottom: 130px;
+}
+
+#productbase .productlook productimage{
+    width: 100%;
+    height: 500px;
 }
 </style>
 </html>
