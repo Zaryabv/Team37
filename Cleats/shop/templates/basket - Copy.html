@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+
+    <!--Unicon-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- font awesome link https://fontawesome.com/kits/65a27d019d/use -->
+    <script src="https://kit.fontawesome.com/65a27d019d.js" crossorigin="anonymous"></script>
+    <!-- google fonts kumbh font link https://fonts.google.com/specimen/Kumbh+Sans?category=Serif,Sans+Serif,Display,Monospace&query=kumb-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <section id="header">
+        <a href="#"><img src="img/Cleats.png" width="120" height="auto" class="logo" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+            <li><a  href="aboutus.html">About Us</a></li>
+            <li><a href="login_signup.html">Login/Sign-Up</a></li><!-- maybe have a icon instead of login/signup-->
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="store.html">Shop</a></li>
+            <!-- have admin login as a button (i.e. if admin click here)-->
+            <li><a class="active" href="basket.html"><i class="fas fa-shopping-cart"></i></a></li><!-- maybe should'nt be a page but drop down menu-->
+            </ul>
+        </div>
+    </section>
+
+    <section id="basket" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Product Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% if item %} 
+                {% for items in item %}
+                <tr>
+                    <td><form action="{% url 'remove' items.id %}" method="POST">{% csrf_token %}
+                        <input id="submit" type="submit" value="Click" />
+                        <i class="uil uil-times-circle"><button id="remove_btn" ></i></a></td>
+                    <td><a href="{% url 'item_details'  items.name %}"><img src="{{ items.picture.url }}" alt="Placeholder image"></a></td>
+                    <td>      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
+                    <td>{{items.quantity}}</td>
+                    <td><input type="number" value="1"></td>
+                    <td>£ {{items.price}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+    <section id="basketprice" class="section-p1">
+        <div id="subtotal">
+            <h3>Basket Total</h3>
+            <table>
+                <tr>
+                    <td>Basket Subtotal</td>
+                    <td> £ {{ total_price }}</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>£20</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong></strong></strong></td>
+                </tr>
+            </table>
+            <form action="{% url 'purchase' %}" method="POST">{% csrf_token %}
+                <input id="submit" type="submit" value="Click" />
+                <button id="purchase_btn" name="buttonbase" >purchase</button> 
+              {% else %}
+              <p>basket is empty</p>
+        </div>
+    </section>
+</body>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleats Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+</head>
+
+<body>
+
+    <section id="header"> 
+        <a href="#"><img src="img/Cleats.png" width="120" height="auto" class="logo" alt=""></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="login_signup.html">Login/Sign-Up</a></li>
+                <!-- maybe have a icon instead of login/signup-->
+                <li><a href="shop.html">Shop</a></li>
+                <!-- have admin login as a button (i.e. if admin click here)-->
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li> <!-- maybe should'nt be a page but drop down menu-->
+                <!-- can have checkout button also embedded as a button in cart menu. -->
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+        </div>
+
+{% if item %} 
+  {% for items in item %}
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        {% if items.picture %}
+      <a href="{% url 'item_details'  items.name %}"><img src="{{ items.picture.url }}" alt="Placeholder image"></a>
+        {% else %}
+          <img src="#" alt="Placeholder image">
+        {% endif %}
+      </p>
+    </figure>
+  
+    <div class="media-content">
+      <div class="content">
+        
+        <p>
+          {% if items.name %}
+      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong>
+          {% else %}
+            <strong>items</strong>
+          {% endif %}
+          <br>
+          <form action="{% url 'remove' items.id %}" method="POST">{% csrf_token %}
+            <input id="submit" type="submit" value="Click" />
+            <button id="remove_btn" >remove</button> 
+         
+          <br>
+        </p>
+      </div>
+      {% endfor %}
+      <p>total price : {{ total_price }}</p>
+      <form action="{% url 'purchase' %}" method="POST">{% csrf_token %}
+        <input id="submit" type="submit" value="Click" />
+        <button id="purchase_btn" >purchase</button> 
+      {% else %}
+      <p>basket is empty</p>
+  </article>
+
+{% endif %}
+
+    </section>
