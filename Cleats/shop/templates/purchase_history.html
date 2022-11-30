@@ -69,7 +69,6 @@
                     <td> <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
                     <td>{{items.price}}</td>
                     <td>{{items.quantity}}</td>
-                    <td><input type="number" value="1"></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -606,6 +605,11 @@ padding: 18px 0;
 font-weight: 500;
 font-size: 13px;
 padding-top: 15px;
+}
+
+#orders-page table img{
+width: 50%;
+height: 50%;
 }
 
 #shopbody .searching {
