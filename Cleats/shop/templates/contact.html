@@ -30,19 +30,19 @@
             <li><a>{{ request.user.username }}</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
-            <li><a href="{% url 'register' %}">Login/Sign-Up</a></li>
+            <li><a href="{% url 'login' %}">Login/Sign-Up</a></li>
             {% endif %}
             <li><a class="active" href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'store' %}">Shop</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'basket' %}"><i class="fas fa-shopping-cart"></i></a></li>
             {% else %}
-            <li><a href="{% url 'register' %}"><i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="{% url 'login' %}"><i class="fas fa-shopping-cart"></i></a></li>
             {% endif %}
             {% if user.is_authenticated %}
             <li><a href="{% url 'purchase_history' %}">My Order</a></li>
             {% else %}
-            <li><a href="{% url 'register' %}">My Orders</a></li>
+            <li><a href="{% url 'login' %}">My Orders</a></li>
             {% endif %}
         </ul>
     </div>
@@ -75,7 +75,7 @@
     <a href="{% url 'aboutus' %}">About us</a>
     <a href="{% url 'contact' %}">Contact us</a>
     <a href="{% url 'store' %}">Shop</a>
-    <a href="{% url 'register' %}">Login/Sign-Up</a>    
+    <a href="{% url 'login' %}">Login/Sign-Up</a>    
 </div>
     <div class="col-news">
         Subscribe to our weekly newsletter!

@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 # Create your views here.
 
+@login_required
 def ItemDetails(request, item_name):
     item = get_object_or_404(Item, name=item_name)
     user = request.user
@@ -63,7 +64,7 @@ def storefront(request):
 	Items = sorted(Item_search(search_entry), key=attrgetter('added'), reverse=True)
 
 	page = request.GET.get('page', 1)
-	Items_paginator = Paginator(Items, 15)
+	Items_paginator = Paginator(Items, 10)
 	Items = Items_paginator.page(page)
 	
 
@@ -72,7 +73,7 @@ def storefront(request):
 
 	return HttpResponse(template.render(context, request))
 
-
+@login_required
 def Basket_view(request):
     context ={}
     user = request.user
@@ -92,7 +93,7 @@ def Basket_view(request):
     template = loader.get_template('basket.html')
     return HttpResponse(template.render(context, request))
 
-
+@login_required
 def Addtobasket(request):
     if request.method == "POST":
         user = request.user
@@ -100,14 +101,13 @@ def Addtobasket(request):
         size = request.POST['size']
         quantity = request.POST['quantity']
         name = request.POST['name']
-        picture = request.POST['picture']
         basket, created = Basket.objects.get_or_create(user=user)
         basket.save()
-        basket_item = BasketItem(user = user, basket=basket, price=price, size=size, quantity=quantity, name=name,picture=picture)
+        basket_item = BasketItem(user = user, basket=basket, price=price, size=size, quantity=quantity, name=name)
         basket_item.save()
 
         return HttpResponseRedirect(reverse('basket'))
-
+@login_required
 def purchase(request):
     user= request.user
     basket = Basket.objects.get(user=user)
@@ -117,8 +117,7 @@ def purchase(request):
             price=each.price
             size=each.size
             quantity=each.quantity
-            picture=each.picture
-            purchased = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name, picture=picture)
+            purchased = HistoryItem(user=user,price=price, size=size, quantity=quantity, name=name)
             purchased.save()
             each.delete()
 
@@ -157,7 +156,7 @@ def store(request):
 	Items = sorted(Item_search(search_entry), key=attrgetter('added'), reverse=True)
 
 	page = request.GET.get('page', 1)
-	Items_paginator = Paginator(Items, 15)
+	Items_paginator = Paginator(Items, 10)
 	Items = Items_paginator.page(page)
 	
 
@@ -165,7 +164,7 @@ def store(request):
 	context['item'] = Items
 
 	return HttpResponse(template.render(context, request))
-    
+@login_required   
 def purchase_history(request):
     context ={}
     user = request.user
@@ -189,17 +188,21 @@ def remove(request,item_id):
     return HttpResponseRedirect(reverse('basket'))
 
 
-
+@login_required
 def admin_view(request):
     context ={}
     user = request.user
     try:
-
         users= User.objects.all()
         orders = HistoryItem.objects.all()
         items = Item.objects.all()
+        page = request.GET.get('page', 1)
+        items_paginator = Paginator(items, 10)
+        items = items_paginator.page(page)
+        total_price = 0
         context['item'] = items
-        context['users'] = users
+        context['total_price'] = total_price
+        context['user'] = user
         context['orders'] = orders
     except Item.DoesNotExist:
         pass
