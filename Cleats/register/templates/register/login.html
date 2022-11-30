@@ -24,13 +24,13 @@
             {% if user.is_staff %}
             <li><a href="{% url 'admin' %}">Admin</a></li>
             {% endif %}
-            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a  href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'aboutus' %}">About Us</a></li>
             {% if user.is_authenticated %}
             <li><a>{{ request.user.username }}</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
-            <li><a href="{% url 'login' %}">Login/Sign-Up</a></li>
+            <li><a class="active" href="{% url 'login' %}">Login/Sign-Up</a></li>
             {% endif %}
             <li><a href="{% url 'contact' %}">Contact us</a></li>
             <li><a href="{% url 'store' %}">Shop</a></li>
@@ -51,31 +51,17 @@
 <body>
 
 
-	<nav class="navbar">
-		<div class="navbar__container">
-			<!--briefcase link https://fontawesome.com/icons/briefcase?s=solid-->
-			<a href="login.php" id="navbar__logo">Login/Sign-up</a>
-			<div class="navbar__toggle" id="mobile-menu">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</div>
-		</div>
-	</nav>
-
-
-
-
 	<body>
 
-
-		<div id="box">
+<section id="signup" class="signup">
+		<div id="box" class="box">
 
 			<form action="{% url 'login' %}" method="POST">{% csrf_token %}
 
 				<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
-
+				<span>Username:</span><br>
 				<input  type="text" name="username"><br><br>
+				<span>Password:</span><br>
 				<input  type="password" name="password"><br><br>
 
 				<input id="button" type="submit" value="Login"><br><br>
@@ -83,6 +69,8 @@
 				<a href="{% url 'register' %}">Click to Signup</a><br><br>
 			</form>
 		</div>
+</section>
+
 	    <div class="footer">
 			<div class="col-link">
 			<h3>Useful Links</h3>
@@ -875,6 +863,11 @@
 	  #productbase{
 	  margin-top: 50px;
 	  margin-bottom: 130px;
+	  }
+
+	  #signup{
+	  margin-top: 50px;
+	  margin-bottom: 300px;
 	  }
 	  </style>
 	  </html>
