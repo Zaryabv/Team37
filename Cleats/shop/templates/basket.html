@@ -65,7 +65,9 @@
                 {% for items in item %}
                 <tr>
                     <td>
-                        <i class="uil uil-times-circle"><button id="remove_btn" ></i></a></td>
+                        <form action="{% url 'remove' items.id %}" method="POST">{% csrf_token %}
+                            <input id="remove" type="submit" value="Click" />
+                        <i class="uil uil-times-circle"><button id="remove_btn" >remove</button></i></a></form></td>
                     <td><a href="{% url 'item_details'  items.name %}"><img src="{{items.picture}}" a></td>
                     <td>      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
                     <td>{{items.price}}</td>
