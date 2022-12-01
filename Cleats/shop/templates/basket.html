@@ -70,7 +70,7 @@
                         <i class="uil uil-times-circle"><button id="remove_btn" >remove</button></i></a></form></td>
                     <td><a href="{% url 'item_details'  items.name %}"><img src="{{items.picture}}" a></td>
                     <td>      <a href="{% url 'item_details'  items.name %}"><strong>{{ items.name }}</strong></td>
-                    <td>{{items.price}}</td>
+                    <td>£{{items.price}}</td>
                     <td>{{items.quantity}}</td>
                     <td>£ {% widthratio items.price 1 items.quantity %}</td>
                 </tr>
