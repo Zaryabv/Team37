@@ -181,6 +181,18 @@ def purchase_history(request):
     template = loader.get_template('purchase_history.html')
     return HttpResponse(template.render(context, request))
 
+
+
+
+
+
+
+
+
+
+
+
+
 @login_required
 def remove(request,item_id):
     basketitems = BasketItem.objects.get(id=item_id)
@@ -189,6 +201,15 @@ def remove(request,item_id):
     
 
     return HttpResponseRedirect(reverse('basket'))
+
+
+
+
+
+
+
+
+
 
 
 @login_required
